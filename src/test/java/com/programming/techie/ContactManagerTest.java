@@ -4,11 +4,12 @@ import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class ContactManagerTest {
 
     ContactManager contactManager;
     @BeforeAll
-    public static void setupAll() {
+    public void setupAll() {
         System.out.println("Should Print Before All Tests");
     }
 
@@ -24,7 +25,7 @@ class ContactManagerTest {
     }
 
     @AfterAll
-    public static void tearDownALl() {
+    public void tearDownALl() {
         System.out.println("Should Execute After All Tests");
     }
     @Test
