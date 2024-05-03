@@ -96,4 +96,20 @@ class ContactManagerTest {
                 .findAny()
                 .isPresent());
     }
+
+//    @BeforeAll
+//    public void tryThis()
+//    {
+//        System.out.print("This is system env");
+//        System.out.println(System.getProperty("ENV"));
+//    }
+
+    @Test
+    @DisplayName("Test Contact Creation on Developer Machine")
+    public void shouldTestContactCreationOnDEV() {
+        Assumptions.assumeTrue("TEST".equals(System.getProperty("ENV")));
+        contactManager.addContact("John", "Doe", "0123456789");
+        assertFalse(contactManager.getAllContacts().isEmpty());
+        assertEquals(1, contactManager.getAllContacts().size());
+    }
 }
